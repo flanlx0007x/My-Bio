@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Purple Coder Bio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            overflow: auto;
+            color: #ccc;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 0 20px #800080;
+        }
+
+        header h1 {
+            font-size: 48px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px #800080, 0 0 30px #4B0082;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto 0 0;
+            padding: 20px;
+            background: rgba(26, 26, 26, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 0 30px #800080, 0 0 60px #4B0082;
+            transition: transform 0.1s ease;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .bio-section, .skills-section {
+            width: 48%;
+        }
+
+        .bio-section {
+            margin-bottom: 60px;
+        }
+
+        .bio-section h2 {
+            font-size: 32px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #800080;
+            display: inline-block;
+            padding-bottom: 5px;
+            text-shadow: 0 0 10px #800080;
+        }
+
+        .bio-section p {
+            font-size: 18px;
+            margin: 15px 0;
+            text-align: justify;
+            padding: 0 20px;
+        }
+
+        .skills-section {
+            margin-top: 60px;
+        }
+
+        .skills-section h2 {
+            font-size: 32px;
+            color: #fff;
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #800080;
+            display: inline-block;
+            padding-bottom: 5px;
+            text-shadow: 0 0 10px #800080;
+        }
+
+        .skill {
+            margin: 20px 0;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .skill-name {
+            font-size: 20px;
+            color: #fff;
+            text-transform: uppercase;
+            flex: 1;
+            text-shadow: 0 0 5px #800080;
+        }
+
+        .skill-percentage {
+            font-size: 20px;
+            color: #800080;
+            font-weight: bold;
+            margin-left: 20px;
+            text-shadow: 0 0 5px #800080;
+        }
+
+        .skill-bar {
+            width: 100%;
+            background: #ccc;
+            height: 20px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+            box-shadow: 0 0 10px #800080;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: #800080;
+            border-radius: 5px;
+            animation: loadSkill 2s ease-in-out forwards;
+            box-shadow: 0 0 15px #800080;
+        }
+
+        @keyframes loadSkill {
+            0% { width: 0%; }
+        }
+
+        .python { width: 50%; }
+        .html { width: 10%; }
+        .css { width: 30%; }
+        .javascript { width: 10%; }
+
+        .code-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 300px;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #800080, 0 0 40px #4B0082;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            z-index: 2;
+        }
+
+        .code-panel h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #800080;
+            text-shadow: 0 0 10px #800080;
+        }
+
+        #code-output {
+            white-space: pre-wrap;
+            min-height: 100px;
+            background: rgba(26, 26, 26, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: inset 0 0 10px #800080;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #999;
+            margin-top: 40px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 20px #800080;
+        }
+
+        .contact-panel {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 300px;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #800080, 0 0 40px #4B0082;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            z-index: 2;
+        }
+
+        .contact-panel h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #800080;
+            text-shadow: 0 0 10px #800080;
+        }
+
+        .contact-panel a {
+            color: #800080;
+            text-decoration: none;
+        }
+
+        .contact-panel a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Bio</h1>
+    </header>
+
+    <div class="container">
+        <div class="bio-section">
+            <h2>About Me</h2>
+            <p>ผมชื่อแฟลงค์ อายุ 15 ปี เพศชาย ส่วนสูงอยู่ระหว่าง 160 ถึงเกือบ 170 ซม. ชอบเขียนโค้ดและคณิต เพราะมันเท่สุดๆ เมื่อทำได้</p>
+
+            <p>ผมเขียนโค้ดได้ถึง 4 ภาษา ได้แก่ Python, HTML (ถึงจะไม่นับว่าเป็นภาษาโปรแกรมเมอร์ก็เถอะ), CSS (นี้ก็อาจไม่ต่างกันมาก) และ JavaScript</p>
+            
+            <p>ผมคือโปรแกรมเมอร์ที่หลงใหลในการเขียนโค้ดและสร้างสรรค์สิ่งใหม่ๆ ด้วยพลังของเทคโนโลยี ผมเริ่มต้นเส้นทางนี้ด้วยความสนใจใน Python ซึ่งตอนนี้กลายเป็นสกิลที่ผมเชี่ยวชาญมากที่สุด ด้วยระดับความสามารถถึง 70% ผมใช้ Python ในการพัฒนาโปรเจกต์ตั้งแต่การวิเคราะห์ข้อมูลไปจนถึงการสร้างโมเดลการเรียนรู้ของเครื่องที่ซับซ้อน</p>
+            
+            <p>นอกจากนี้ ผมยังเริ่มต้นเรียนรู้และฝึกฝนทักษะด้านการพัฒนาเว็บ ด้วย HTML, CSS และ JavaScript ซึ่งแต่ละอย่างผมให้คะแนนตัวเองที่ 10% เพราะผมเชื่อว่าการเรียนรู้ไม่มีที่สิ้นสุด และนี่เป็นเพียงจุดเริ่มต้นของการเดินทางเพื่อเป็นนักพัฒนาแบบเต็มสแตก</p>
+        </div>
+
+        <div class="skills-section">
+            <h2>My Skills</h2>
+            <div class="skill">
+                <span class="skill-name">Python</span>
+                <span class="skill-percentage">70%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-level python"></div>
+            </div>
+
+            <div class="skill">
+                <span class="skill-name">HTML</span>
+                <span class="skill-percentage">10%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-level html"></div>
+            </div>
+
+            <div class="skill">
+                <span class="skill-name">CSS</span>
+                <span class="skill-percentage">30%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-level css"></div>
+            </div>
+
+            <div class="skill">
+                <span class="skill-name">JavaScript</span>
+                <span class="skill-percentage">10%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-level javascript"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="code-panel">
+        <h3>Example of coding</h3>
+        <div id="code-output"></div>
+    </div>
+
+    <div class="contact-panel">
+        <h3>Contact Me</h3>
+        <p>Discord: <a href="https://discord.com" target="_blank">YourDiscordID</a></p>
+        <p>Instagram: <a href="https://instagram.com" target="_blank">@YourInstagram</a></p>
+    </div>
+
+    <footer>
+        <p>สร้างโดย 𝓜𝓻.𝓣𝓸𝓶𝓪𝓽𝓸        </p>
+    </footer>
+
+    <script>
+        // Mouse tilt effect
+        const container = document.querySelector('.container');
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 20;
+            const y = (e.clientY / window.innerHeight - 0.5) * 20;
+            container.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
+        });
+
+        function makeDraggable(element) {
+            let isDragging = false;
+            let startX, startY, initialX, initialY;
+
+            element.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                startX = e.clientX;
+                startY = e.clientY;
+                initialX = element.offsetLeft;
+                initialY = element.offsetTop;
+                element.style.transition = 'none';
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                    const dx = e.clientX - startX;
+                    const dy = e.clientY - startY;
+                    element.style.left = `${initialX + dx}px`;
+                    element.style.top = `${initialY + dy}px`;
+                }
+            });
+
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+                element.style.transition = 'left 0.2s ease, top 0.2s ease';
+            });
+        }
+
+        const codePanel = document.querySelector('.code-panel');
+        const contactPanel = document.querySelector('.contact-panel');
+        makeDraggable(codePanel);
+        makeDraggable(contactPanel);
+
+        const codeOutput = document.getElementById('code-output');
+        const sampleCode = `def continuous_learning(data):
+    knowledge = initialize_knowledge()  
+    while not learning_complete(knowledge): 
+        for input_data in data:
+            knowledge = update_knowledge(knowledge, input_data)  
+            if feedback_received(input_data):
+                knowledge = refine_knowledge(knowledge)  
+    return knowledge
+
+print("Learning never stops!")`;
+
+        let index = 0;
+        let isDeleting = false;
+
+        function typeCode() {
+            if (!isDeleting && index <= sampleCode.length) {
+                codeOutput.textContent = sampleCode.slice(0, index);
+                index++;
+                setTimeout(typeCode, 20);
+            } else if (!isDeleting && index > sampleCode.length) {
+                isDeleting = true;
+                setTimeout(typeCode, 500);
+            } else if (isDeleting && index >= 0) {
+                codeOutput.textContent = sampleCode.slice(0, index);
+                index--;
+                setTimeout(typeCode, 25);
+            } else if (isDeleting && index < 0) {
+                isDeleting = false;
+                setTimeout(typeCode, 250);
+            }
+        }
+
+        typeCode();
+    </script>
+</body>
+</html>
